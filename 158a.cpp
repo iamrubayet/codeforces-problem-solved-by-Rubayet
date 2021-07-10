@@ -1,17 +1,34 @@
-#include <cstdio>
- 
-int n, k;
-int T[51];
- 
+#include <iostream>
+
+using namespace std;
+
 int main()
 {
-	scanf("%d %d", &n, &k);
-	int i = 1;
-	for(; i <= n; ++i)
-	{
-		scanf("%d", &T[i]);
-		if(T[i] == 0 || T[i] < T[k]) break;
-	}
-	printf("%d\n", i - 1);
-	return 0;
+    int n, k;
+    cin >> n >> k;
+
+    int a;
+    for (int i = 0; i < k; ++i)
+    {
+        cin >> a;
+        if (a == 0)
+        {
+            cout << i << endl;
+            return 0;
+        }
+    }
+
+    int b;
+    for (int i = k; i < n; ++i)
+    {
+        cin >> b;
+        if (b != a)
+        {
+            cout << i << endl;
+            return 0;
+        }
+    }
+
+    cout << n << endl;
+    return 0;
 }
